@@ -2,6 +2,8 @@ import cron from 'node-cron'
 import { CRON_SCHEDULE, MENTION, MEMBER } from './constants'
 import { postSlackMessage, generateMondayMessage, generateFridayMessage, getCurrentWeekIndex } from './utils'
 
+import './modules/express'
+
 const buildMessage = (text: string) => ({ text })
 
 cron.schedule(
