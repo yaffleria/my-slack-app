@@ -6,19 +6,19 @@ import './modules/express'
 
 const buildMessage = (text: string) => ({ text })
 
-cron.schedule(
-  CRON_SCHEDULE.EVERY_MONDAY_AT_1030AM,
-  async () => {
-    console.log('[Cron] MONDAY 10:30AM 실행')
-    try {
-      const text = await generateMondayMessage()
-      await postSlackMessage(buildMessage(text as string))
-    } catch (error) {
-      console.warn('[Cron] generateFridayMessage 실패. 메시지 전송 생략')
-    }
-  },
-  { timezone: 'Asia/Seoul' }
-)
+// cron.schedule(
+  // CRON_SCHEDULE.EVERY_MONDAY_AT_1030AM,
+  // async () => {
+    // console.log('[Cron] MONDAY 10:30AM 실행')
+    // try {
+      // const text = await generateMondayMessage()
+      // await postSlackMessage(buildMessage(text as string))
+    // } catch (error) {
+      // console.warn('[Cron] generateFridayMessage 실패. 메시지 전송 생략')
+    // }
+  // },
+  // { timezone: 'Asia/Seoul' }
+// )
 
 cron.schedule(
   CRON_SCHEDULE.EVERY_MONDAY_AT_2PM,
@@ -62,19 +62,19 @@ cron.schedule(
   { timezone: 'Asia/Seoul' }
 )
 
-cron.schedule(
-  CRON_SCHEDULE.EVERY_FRIDAY_AT_530PM,
-  async () => {
-    console.log('[Cron] FRIDAY 5:30PM 실행')
-    try {
-      const text = await generateFridayMessage()
-      await postSlackMessage(buildMessage(text as string))
-    } catch (error) {
-      console.warn('[Cron] generateFridayMessage 실패. 메시지 전송 생략')
-    }
-  },
-  { timezone: 'Asia/Seoul' }
-)
+// cron.schedule(
+  // CRON_SCHEDULE.EVERY_FRIDAY_AT_530PM,
+  // async () => {
+    // console.log('[Cron] FRIDAY 5:30PM 실행')
+    // try {
+      // const text = await generateFridayMessage()
+      // await postSlackMessage(buildMessage(text as string))
+    // } catch (error) {
+      // console.warn('[Cron] generateFridayMessage 실패. 메시지 전송 생략')
+    // }
+  // },
+  // { timezone: 'Asia/Seoul' }
+// )
 
 cron.schedule(
   CRON_SCHEDULE.EVERY_MINUTE,
